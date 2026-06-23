@@ -75,7 +75,7 @@ class RockPaperScissorsGUI(tk.Tk):
         elif result == "You win!":
             self.result_label.config(fg="#7bed9f")
         elif result == "Computer wins!":
-            self.result_label.config(fg="#ff8c42")
+            self.result_label.config(fg="#ff0000")
 
     def reset_game(self):
         self.status_label.config(text="Choose rock, paper, or scissors.")
