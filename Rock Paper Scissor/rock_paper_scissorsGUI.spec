@@ -5,7 +5,11 @@ a = Analysis(
     ['rock_paper_scissorsGUI.py'],
     pathex=[],
     binaries=[],
-    datas=[],
+    datas=[
+        ('Rock.png', '.'),
+        ('Paper.png', '.'),
+        ('Scissors.png', '.'),
+    ],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
