@@ -115,6 +115,12 @@ class RockPaperScissorsGUI(tk.Tk):
                 if os.path.exists(file_path):
                     try:
                         image = tk.PhotoImage(file=file_path)
+                        width = image.width()
+                        height = image.height()
+                        max_size = 64
+                        if width > max_size or height > max_size:
+                            subsample = max(1, int(max(width / max_size, height / max_size)))
+                            image = image.subsample(subsample, subsample)
                         self.choice_images[choice] = image
                         break
                     except Exception:
