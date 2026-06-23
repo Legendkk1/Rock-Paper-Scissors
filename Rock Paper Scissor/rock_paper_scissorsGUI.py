@@ -19,20 +19,20 @@ class RockPaperScissorsGUI(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title("Rock Paper Scissors")
-        self.resizable(False, False)
+        self.resizable(True, True)
+        self.minsize(320, 260)
         self.configure(bg="#222831", padx=20, pady=20)
 
         title_label = tk.Label(self, text="Rock Paper Scissors", font=("Arial", 18, "bold"), bg="#222831", fg="#00adb5")
-        title_label.pack(pady=(0, 10))
+        title_label.pack(fill=tk.X, pady=(0, 10))
 
         self.status_label = tk.Label(self, text="Choose rock, paper, or scissors.", font=("Arial", 12), bg="#222831", fg="#eeeeee")
-        self.status_label.pack(pady=(0, 10))
+        self.status_label.pack(fill=tk.X, pady=(0, 10))
 
         button_frame = tk.Frame(self, bg="#222831")
-        button_frame.pack(pady=(0, 10))
+        button_frame.pack(fill=tk.X, pady=(0, 10))
 
         button_style = {
-            "width": 10,
             "font": ("Arial", 11, "bold"),
             "bd": 0,
             "fg": "white",
@@ -50,13 +50,13 @@ class RockPaperScissorsGUI(tk.Tk):
         for choice in choices:
             settings = {**button_style, **style_map[choice]}
             button = tk.Button(button_frame, text=choice.title(), command=lambda c=choice: self.play_round(c), **settings)
-            button.pack(side=tk.LEFT, padx=5)
+            button.pack(side=tk.LEFT, expand=True, fill=tk.X, padx=5)
 
         self.result_label = tk.Label(self, text="", font=("Arial", 12, "bold"), bg="#222831", fg="#ffd369")
-        self.result_label.pack(pady=(10, 5))
+        self.result_label.pack(fill=tk.X, pady=(10, 5))
 
         self.choice_label = tk.Label(self, text="", font=("Arial", 11), bg="#222831", fg="#eeeeee")
-        self.choice_label.pack(pady=(0, 10))
+        self.choice_label.pack(fill=tk.X, pady=(0, 10))
 
         self.reset_button = tk.Button(self, text="Reset", width=10, command=self.reset_game, bg="#393e46", fg="white",
                                       activebackground="#00adb5", activeforeground="white", bd=0, cursor="hand2")
